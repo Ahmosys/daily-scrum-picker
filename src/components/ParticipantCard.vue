@@ -1,5 +1,5 @@
 <template>
-  <v-card :color="isAlreadySelected ? 'primary' : ''" prepend-icon="mdi-account">
+  <v-card :color="isParticipantAlreadySelected(props.participant) ? 'primary' : ''" prepend-icon="mdi-account">
     <v-img
       :src="`https://api.dicebear.com/7.x/pixel-art/svg?seed=${participant.name}`"
       height="100"
@@ -19,19 +19,20 @@
 
 <script setup>
 import { defineProps } from "vue";
+import { useParticipantStore } from "@/store/participant";
+
+const storeParticipants = useParticipantStore();
 
 const props = defineProps({
   participant: {
     type: Object,
     required: true,
   },
-  isAlreadySelected: {
-    type: Boolean,
-    default: false,
-  },
-  isLastSelected: {
-    type: Boolean,
-    default: false,
-  },
 });
+
+const isParticipantAlreadySelected = (participant) =>
+  storeParticipants.isParticipantAlreadySelected(participant);
+
+const isLastParticipantSelected = (participant) =>
+  storeParticipants.isLastParticipantSelected(participant);
 </script>
