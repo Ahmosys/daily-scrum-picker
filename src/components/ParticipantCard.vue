@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 import { useParticipantStore } from "@/store/participant";
 
 const storeParticipants = useParticipantStore();

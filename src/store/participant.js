@@ -70,7 +70,7 @@ export const useParticipantStore = defineStore({
           if (this.remainingParticipants.length > 0) {
             this.removeRandomParticipant();
           } else {
-            this.resetGame();
+            this.resetSession();
           }
           this.isLoading = false;
         }, 2000);
@@ -92,10 +92,8 @@ export const useParticipantStore = defineStore({
         this.isCounting = true;
       }
     },
-    resetGame() {
-      this.isCounting = false;
-      this.remainingParticipants = [...this.participants];
-      this.lastParticipantSelectedId = null;
+    resetSession() {
+      this.$reset();
     },
   },
 });
