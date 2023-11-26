@@ -4,9 +4,9 @@
       <v-row class="text-center">
         <participant-remaining-time-section />
         <v-divider inset vertical></v-divider>
-        <participant-remaining-section />
-        <v-divider inset vertical></v-divider>
         <participant-last-selected-section />
+        <v-divider inset vertical></v-divider>
+        <participant-remaining-section />
       </v-row>
       <v-row class="text-center">
         <participant-list />

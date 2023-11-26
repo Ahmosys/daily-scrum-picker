@@ -4,8 +4,8 @@
       <v-icon icon="mdi-account"></v-icon>Remaining participants
     </p>
     <span v-if="storeParticipants.getRemainingParticipantsLength == 0"
-      >The daily is finished</span
-    >
+        >The daily is finished</span
+      >
     <span v-else
       ><span class="text-error font-weight-bold">{{
         storeParticipants.getRemainingParticipantsLength

@@ -1,7 +1,7 @@
 <template>
   <v-col>
     <p class="text-h6 font-weight-bold">
-      <v-icon icon="mdi-account-settings"></v-icon>Last selected participant
+      <v-icon icon="mdi-flag-checkered"></v-icon>Last selected participant
     </p>
     <p>
       <span v-if="storeParticipants.getLastParticipantSelectedId"
