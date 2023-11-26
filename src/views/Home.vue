@@ -20,7 +20,7 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup>  
 import { useParticipantStore } from "@/store/participant";
 
 import ParticipantList from "@/components/ParticipantList.vue";
