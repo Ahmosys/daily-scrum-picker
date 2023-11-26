@@ -7,9 +7,7 @@
       <span v-if="storeParticipants.getLastParticipantSelectedId"
         >It's your turn
         <span class="text-error font-weight-bold">{{
-          getParticipantById(
-            storeParticipants.getLastParticipantSelectedId
-          ).name.toUpperCase()
+          lastSelectedParticipantName
         }}</span></span
       >
       <span v-else>Not started yet</span>
@@ -18,9 +16,16 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import { useParticipantStore } from "@/store/participant";
 
 const storeParticipants = useParticipantStore();
+
+const lastSelectedParticipantName = computed(() => {
+  return getParticipantById(
+    storeParticipants.getLastParticipantSelectedId
+  ).name.toUpperCase();
+});
 
 const getParticipantById = (id) => storeParticipants.getParticipantById(id);
 </script>
