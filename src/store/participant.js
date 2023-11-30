@@ -34,6 +34,7 @@ export const useParticipantStore = defineStore({
     lastParticipantSelectedId: null,
     isLoading: false,
     isCounting: false,
+    isFinished: false,
   }),
   getters: {
     getRemainingParticipantsLength: (state) => state.remainingParticipants.length,
@@ -52,6 +53,7 @@ export const useParticipantStore = defineStore({
     getLastParticipantSelectedId: (state) => state.lastParticipantSelectedId,
     getIsLoading: (state) => state.isLoading,
     getIsCounting: (state) => state.isCounting,
+    getIsFinished: (state) => state.remainingParticipants.length === 0,
     isParticipantAlreadySelected(state) {
       return (participant) =>
         !state.remainingParticipants.some((p) => p.id === participant.id);

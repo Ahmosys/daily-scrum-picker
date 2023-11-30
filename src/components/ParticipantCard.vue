@@ -1,5 +1,5 @@
 <template>
-  <v-card :color="participantColor" prepend-icon="mdi-account">
+  <v-card :color="participantColor" prepend-icon="mdi-account" border="">
     <v-img
       :src="`https://api.dicebear.com/7.x/pixel-art/svg?seed=${participant.name}`"
       height="100"
@@ -10,7 +10,7 @@
           <p class="text-h6 font-weight-bold">{{ participant.name }}</p>
         </v-col>
         <v-col cols="12">
-          {{ participant.trigram }}
+          <p>{{ participant.trigram }}</p>
         </v-col>
       </v-row>
     </v-card-text>
@@ -31,11 +31,17 @@ const props = defineProps({
 });
 
 const participantColor = computed(() => {
-  if (isParticipantAlreadySelected(props.participant) && isLastParticipantSelected(props.participant)) {
+  // If the participant is already selected and is the last one
+  if (
+    isParticipantAlreadySelected(props.participant) &&
+    isLastParticipantSelected(props.participant)
+  ) {
     return "error";
+  // If the participant is already selected but is not the last one
   } else if (isParticipantAlreadySelected(props.participant)) {
     return "primary";
   }
+  // If the participant was not selected yet
   return "";
 });
 

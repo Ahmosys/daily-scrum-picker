@@ -22,10 +22,7 @@ import { useParticipantStore } from "@/store/participant";
 const storeParticipants = useParticipantStore();
 
 const lastSelectedParticipantName = computed(() => {
-  return getParticipantById(
-    storeParticipants.getLastParticipantSelectedId
-  ).name.toUpperCase();
+  return storeParticipants.getLastParticipantSelected.name.toUpperCase();
 });
 
-const getParticipantById = (id) => storeParticipants.getParticipantById(id);
 </script>
