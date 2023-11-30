@@ -41,6 +41,6 @@ const handleDialogState = () => (dialog.value = !dialog.value);
 const handleThemeState = () => {
   const newTheme = theme.global.current.value.dark ? "light" : "dark";
   theme.global.name.value = newTheme;
-  localStorage.setItem('userTheme', newTheme);
-}
+  localStorage.setItem("userTheme", newTheme);
+};
 </script>

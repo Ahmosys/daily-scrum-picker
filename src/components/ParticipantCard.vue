@@ -1,9 +1,9 @@
 <template>
-  <v-card :color="participantColor" prepend-icon="mdi-account" border="">
-    <v-img
-      :src="`https://api.dicebear.com/7.x/pixel-art/svg?seed=${participant.name}`"
-      height="100"
-    ></v-img>
+  <v-card prepend-icon="mdi-account" :border="true" :color="participantColor" :disabled="participantDisabled" >
+    <v-avatar
+      :image="`https://i.pravatar.cc/250?u=${participant.name}`"
+      size="100"
+    ></v-avatar>
     <v-card-text>
       <v-row no-gutters>
         <v-col cols="12">
@@ -30,24 +30,30 @@ const props = defineProps({
   },
 });
 
+
+const isParticipantSelected = computed(() =>
+  storeParticipants.isParticipantAlreadySelected(props.participant)
+);
+const isLastParticipant = computed(() =>
+  storeParticipants.isLastParticipantSelected(props.participant)
+);
+
 const participantColor = computed(() => {
-  // If the participant is already selected and is the last one
-  if (
-    isParticipantAlreadySelected(props.participant) &&
-    isLastParticipantSelected(props.participant)
-  ) {
-    return "error";
-  // If the participant is already selected but is not the last one
-  } else if (isParticipantAlreadySelected(props.participant)) {
-    return "primary";
-  }
-  // If the participant was not selected yet
-  return "";
+  const selected = isParticipantSelected.value;
+  const lastParticipant = isLastParticipant.value;
+
+  return selected
+    ? lastParticipant
+      ? "error"
+      : "primary"
+    : "";
 });
 
-const isParticipantAlreadySelected = (participant) =>
-  storeParticipants.isParticipantAlreadySelected(participant);
+const participantDisabled = computed(() => {
+  const selected = isParticipantSelected.value;
+  const lastParticipant = isLastParticipant.value;
 
-const isLastParticipantSelected = (participant) =>
-  storeParticipants.isLastParticipantSelected(participant);
+  return selected ? !lastParticipant : false;
+});
 </script>
+
