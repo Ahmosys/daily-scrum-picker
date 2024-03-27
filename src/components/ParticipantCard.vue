@@ -30,7 +30,6 @@ const props = defineProps({
   },
 });
 
-
 const isParticipantSelected = computed(() =>
   storeParticipants.isParticipantAlreadySelected(props.participant)
 );

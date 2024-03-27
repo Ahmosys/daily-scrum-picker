@@ -1,6 +1,6 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive class="align-center fill-height">
+    <v-responsive class="align-center fill-height" v-if="storeParticipants.getParticipantsLength > 0">
       <v-row class="text-center">
         <participant-remaining-time-section />
         <v-divider inset vertical></v-divider>
@@ -23,6 +23,8 @@
 <script setup>  
 import { useParticipantStore } from "@/store/participant";
 
+import { onMounted } from "vue";
+
 import ParticipantList from "@/components/ParticipantList.vue";
 import ParticipantSelectionButton from "@/components/ParticipantSelectionButton.vue";
 import ParticipantRemainingSection from "@/components/ParticipantRemainingSection.vue";
@@ -33,4 +35,8 @@ const storeParticipants = useParticipantStore();
 
 const selectRandomParticipant = () =>
   storeParticipants.selectRandomParticipant();
+
+onMounted(() => {
+  storeParticipants.loadParticipantsFromLocalStorage();
+});
 </script>

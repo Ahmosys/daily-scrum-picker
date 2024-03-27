@@ -3,34 +3,8 @@ import { defineStore } from "pinia";
 export const useParticipantStore = defineStore({
   id: "participant",
   state: () => ({
-    participants: [
-      { id: 1, name: "Antonin", trigram: "afo" },
-      { id: 2, name: "Christophe", trigram: "cda" },
-      { id: 3, name: "Hugo", trigram: "hro" },
-      { id: 4, name: "Karine", trigram: "ksi" },
-      { id: 5, name: "Kiki", trigram: "cde" },
-      { id: 6, name: "Michael", trigram: "mil" },
-      { id: 7, name: "Nicolas", trigram: "nmi" },
-      { id: 8, name: "Philippe", trigram: "pst" },
-      { id: 9, name: "Salim", trigram: "skf" },
-      { id: 10, name: "Vincent", trigram: "vml" },
-      { id: 11, name: "John", trigram: "jdo" },
-      { id: 12, name: "Carole", trigram: "cpt" },
-    ],
-    remainingParticipants: [
-      { id: 1, name: "Antonin", trigram: "afo" },
-      { id: 2, name: "Christophe", trigram: "cda" },
-      { id: 3, name: "Hugo", trigram: "hro" },
-      { id: 4, name: "Karine", trigram: "ksi" },
-      { id: 5, name: "Kiki", trigram: "cde" },
-      { id: 6, name: "Michael", trigram: "mil" },
-      { id: 7, name: "Nicolas", trigram: "nmi" },
-      { id: 8, name: "Philippe", trigram: "pst" },
-      { id: 9, name: "Salim", trigram: "skf" },
-      { id: 10, name: "Vincent", trigram: "vml" },
-      { id: 11, name: "John", trigram: "jdo" },
-      { id: 12, name: "Carole", trigram: "cpt" },
-    ],
+    participants: [],
+    remainingParticipants: [],
     lastParticipantSelectedId: null,
     isLoading: false,
     isCounting: false,
@@ -75,7 +49,7 @@ export const useParticipantStore = defineStore({
             this.resetSession();
           }
           this.isLoading = false;
-        }, 2000);
+        }, 1000);
       }
     },
     removeRandomParticipant() {
@@ -89,13 +63,37 @@ export const useParticipantStore = defineStore({
       );
       this.remainingParticipants.splice(indexToRemove, 1);
     },
+    addParticipant(name, trigram) {
+      const newParticipant = { 
+        id: this.participants.length + 1,
+        name: name,
+        trigram: trigram
+      };
+      this.participants.push(newParticipant);
+      this.remainingParticipants.push(newParticipant);
+      this.saveParticipantsToLocalStorage();
+    },
+    saveParticipantsToLocalStorage() {
+      localStorage.setItem('participants', JSON.stringify(this.participants));
+    },
+    loadParticipantsFromLocalStorage() {
+      const savedParticipants = localStorage.getItem('participants');
+      if (savedParticipants) {
+        this.participants = JSON.parse(savedParticipants);
+        this.remainingParticipants = [...this.participants];
+      }
+    },
     startCountdown() {
       if (this.remainingParticipants.length === this.participants.length) {
         this.isCounting = true;
       }
     },
     resetSession() {
-      this.$reset();
+      this.lastParticipantSelectedId = null;
+      this.isLoading = false;
+      this.isCounting = false;
+      this.isFinished = false;
+      this.remainingParticipants = [...this.participants];
     },
   },
 });
