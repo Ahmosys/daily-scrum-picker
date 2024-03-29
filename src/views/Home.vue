@@ -1,14 +1,20 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive 
-      v-if="storeParticipants.getParticipantsLength > 0" 
+    <v-responsive
+      v-if="storeParticipants.getParticipantsLength > 0"
       class="align-center fill-height"
     >
       <v-row class="text-center">
         <participant-remaining-time-section />
-        <v-divider inset vertical />
+        <v-divider 
+          inset 
+          vertical 
+        />
         <participant-last-selected-section />
-        <v-divider inset vertical /> 
+        <v-divider 
+          inset 
+          vertical 
+        />
         <participant-remaining-section />
       </v-row>
       <v-row class="text-center">
@@ -23,7 +29,7 @@
   </v-container>
 </template>
 
-<script setup>  
+<script setup>
 import { useParticipantStore } from "@/store/participant";
 
 import { onMounted } from "vue";
