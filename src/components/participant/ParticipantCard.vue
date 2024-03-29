@@ -3,7 +3,7 @@
     prepend-icon="mdi-account"
     :border="true"
     :color="participantColor"
-    :disabled="participantDisabled"
+    :disabled="isParticipantDisabled"
   >
     <v-avatar
       :image="`https://i.pravatar.cc/250?u=${participant.name}`"
@@ -44,17 +44,17 @@ const isLastParticipant = computed(() =>
   storeParticipants.isLastParticipantSelected(props.participant)
 );
 
+const isParticipantDisabled = computed(() => {
+  const selected = isParticipantSelected.value;
+  const lastParticipant = isLastParticipant.value;
+
+  return selected ? !lastParticipant : false;
+});
+
 const participantColor = computed(() => {
   const selected = isParticipantSelected.value;
   const lastParticipant = isLastParticipant.value;
 
   return selected ? (lastParticipant ? "error" : "primary") : "";
-});
-
-const participantDisabled = computed(() => {
-  const selected = isParticipantSelected.value;
-  const lastParticipant = isLastParticipant.value;
-
-  return selected ? !lastParticipant : false;
 });
 </script>
