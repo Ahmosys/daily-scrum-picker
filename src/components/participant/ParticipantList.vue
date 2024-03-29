@@ -11,7 +11,7 @@
 <script setup>
 import { useParticipantStore } from "@/store/participant";
 
-import ParticipantCard from "./ParticipantCard.vue";
+import ParticipantCard from "@/components/participant/ParticipantCard.vue";
 
 const storeParticipants = useParticipantStore();
 </script>

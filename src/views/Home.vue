@@ -1,11 +1,14 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive class="align-center fill-height" v-if="storeParticipants.getParticipantsLength > 0">
+    <v-responsive 
+      v-if="storeParticipants.getParticipantsLength > 0" 
+      class="align-center fill-height"
+    >
       <v-row class="text-center">
         <participant-remaining-time-section />
-        <v-divider inset vertical></v-divider>
+        <v-divider inset vertical />
         <participant-last-selected-section />
-        <v-divider inset vertical></v-divider>
+        <v-divider inset vertical /> 
         <participant-remaining-section />
       </v-row>
       <v-row class="text-center">
@@ -25,11 +28,11 @@ import { useParticipantStore } from "@/store/participant";
 
 import { onMounted } from "vue";
 
-import ParticipantList from "@/components/ParticipantList.vue";
-import ParticipantSelectionButton from "@/components/ParticipantSelectionButton.vue";
-import ParticipantRemainingSection from "@/components/ParticipantRemainingSection.vue";
-import ParticipantLastSelectedSection from "@/components/ParticipantLastSelectedSection.vue";
-import ParticipantRemainingTimeSection from "@/components/ParticipantRemainingTimeSection.vue";
+import ParticipantList from "@/components/participant/ParticipantList.vue";
+import ParticipantSelectionButton from "@/components/participant/ParticipantSelectionButton.vue";
+import ParticipantRemainingSection from "@/components/participant/ParticipantRemainingSection.vue";
+import ParticipantLastSelectedSection from "@/components/participant/ParticipantLastSelectedSection.vue";
+import ParticipantRemainingTimeSection from "@/components/participant/ParticipantRemainingTimeSection.vue";
 
 const storeParticipants = useParticipantStore();
 

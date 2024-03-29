@@ -16,11 +16,11 @@
         <v-card-text>
           <v-row dense>
             <v-col cols="12">
-              <v-text-field v-model="firstName" label="First name*" placeholder="Hugo"
+              <v-text-field v-model="firstName" label="First name*" placeholder="John"
                 :rules="[rules.required]" maxlength="10" variant="underlined" required counter></v-text-field>
             </v-col>
             <v-col cols="12">
-              <v-text-field v-model="trigram" label="Trigram*" placeholder="hro" :rules="[rules.required]"
+              <v-text-field v-model="trigram" label="Trigram*" placeholder="jdo" :rules="[rules.required]"
                 maxlength="3" variant="underlined" counter required></v-text-field>
             </v-col>
           </v-row>

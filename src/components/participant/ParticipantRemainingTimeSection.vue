@@ -1,7 +1,7 @@
 <template>
   <v-col>
     <p class="text-h6 font-weight-bold">
-      <v-icon icon="mdi-timer-sand"></v-icon>Remaining time
+      <v-icon icon="mdi-timer-sand" />Remaining time
     </p>
     <p>
       <participant-countdown-timer />
@@ -10,5 +10,5 @@
 </template>
 
 <script setup>
-import ParticipantCountdownTimer from './ParticipantCountdownTimer.vue';
+import ParticipantCountdownTimer from '@/components/participant/ParticipantCountdownTimer.vue';
 </script>

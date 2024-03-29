@@ -1,9 +1,9 @@
 <template>
   <vue-countdown
     v-if="storeParticipants.getIsCounting"
-    :time="COUNTDOWN_TIME"
-    v-slot="{ minutes, seconds }"
     ref="countdownRef"
+    v-slot="{ minutes, seconds }"
+    :time="countdownTime" 
   >
     <span class="text-error font-weight-bold">{{ minutes }}</span>
     minutes and
@@ -19,7 +19,7 @@ import { useParticipantStore } from "@/store/participant";
 
 const storeParticipants = useParticipantStore();
 
-const COUNTDOWN_TIME = 15 * 60 * 1000;
+const countdownTime = 15 * 60 * 1000;
 const countdownRef = ref(null);
 
 // Abort countdown when no more participants are left (pause)
