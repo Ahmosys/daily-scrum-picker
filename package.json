@@ -11,6 +11,7 @@
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^2.1.2",
     "@mdi/font": "7.0.96",
+    "@tsparticles/vue3": "^3.0.1",
     "core-js": "^3.29.0",
     "pinia": "^2.0.0",
     "prettier-eslint": "^16.3.0",
