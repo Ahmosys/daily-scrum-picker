@@ -4,14 +4,14 @@
     :key="participant.id"
     cols="2"
   >
-    <participant-card :participant="participant" />
+    <participant-list-card :participant="participant" />
   </v-col>
 </template>
 
 <script setup>
 import { useParticipantStore } from "@/store/participant";
 
-import ParticipantCard from "@/components/participant/ParticipantCard.vue";
+import ParticipantListCard from "@/components/participant/ParticipantListCard.vue";
 
 const storeParticipants = useParticipantStore();
 </script>

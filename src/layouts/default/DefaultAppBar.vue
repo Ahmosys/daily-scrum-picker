@@ -8,40 +8,24 @@
     <!-- Add participant dialog -->
     <app-bar-add-participant-dialog-button />
     <!-- Theme switcher -->
-    <v-btn :icon="theme.global.current.value.dark
-      ? 'mdi-weather-night'
-      : 'mdi-weather-sunny'
-      " @click="handleThemeState"></v-btn>
+    <v-btn 
+      :icon="theme.global.current.value.dark
+        ? 'mdi-weather-night'
+        : 'mdi-weather-sunny'"
+      @click="handleThemeState" 
+    />
     <!-- Info dialog -->
-    <v-btn icon="mdi-information-outline" @click="handleDialogState"></v-btn>
-    <v-dialog v-model="dialogInfo" width="512">
-      <v-card title="Information" prepend-icon="mdi-information-outline">
-        <v-card-text>
-          This application was created by HRO to help teams during daily scrum
-          meetings. The aim is to randomly select a participant to speak and
-          never have the same speaking order. If you have any questions or
-          suggestions, please don't hesitate to contact me at my professional
-          e-mail address.
-        </v-card-text>
-        <v-card-actions>
-          <v-btn variant="plain" block @click="handleDialogState">Close</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <app-bar-info-dialog-button />
   </v-app-bar>
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { useTheme } from "vuetify";
 
 import AppBarAddParticipantDialogButton from "@/components/appbar/AppBarAddParticipantDialogButton.vue";
- 
-const dialogInfo = ref(false);
+import AppBarInfoDialogButton from "@/components/appbar/AppBarInfoDialogButton.vue";
 
 const theme = useTheme();
-
-const handleDialogState = () => (dialogInfo.value = !dialogInfo.value);
 
 const handleThemeState = () => {
   const newTheme = theme.global.current.value.dark ? "light" : "dark";
