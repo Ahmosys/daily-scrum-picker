@@ -16,6 +16,7 @@
     <v-card 
       title="Add a new participant" 
       prepend-icon="mdi-account-multiple-plus"
+      @keyup.enter="handleAddParticipant"
     >
       <v-card-text>
         <v-row dense>
@@ -40,7 +41,7 @@
               maxlength="3" 
               variant="underlined" 
               counter 
-              required 
+              required
             />
           </v-col>
         </v-row>
