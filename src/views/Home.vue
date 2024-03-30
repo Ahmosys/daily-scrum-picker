@@ -4,9 +4,15 @@
       <div v-if="storeParticipants.getParticipantsLength > 0">
         <v-row class="text-center">
           <participant-remaining-time-section />
-          <v-divider inset vertical />
+          <v-divider 
+            inset 
+            vertical 
+          />
           <participant-last-selected-section />
-          <v-divider inset vertical />
+          <v-divider 
+            inset 
+            vertical 
+          />
           <participant-remaining-section />
         </v-row>
         <v-row class="text-center">
