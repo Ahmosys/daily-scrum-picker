@@ -1,9 +1,5 @@
 <template>
-  <transition-group 
-    :css="false" 
-    appear
-    @enter="participantCardOnEnter" 
-  >
+  <participant-list-transition>
     <v-col
       v-for="(participant, index) in storeParticipants.getParticipants"
       :key="participant.id"
@@ -12,41 +8,14 @@
     >
       <participant-list-card :participant="participant" />
     </v-col>
-  </transition-group> 
+  </participant-list-transition>
 </template>
 
 <script setup>
-import { ref } from "vue";
-
 import { useParticipantStore } from "@/store/participant";
 
 import ParticipantListCard from "@/components/participant/ParticipantListCard.vue";
-
-import gsap from "gsap";
+import ParticipantListTransition from "@/components/participant/ParticipantListTransition.vue";
 
 const storeParticipants = useParticipantStore();
-
-const isFirstLoad = ref(true);
-
-const participantCardOnEnter = (el, done) => {
-  gsap.fromTo(
-    el,
-    {
-      opacity: 0,
-      translateY: -30,
-    },
-    {
-      opacity: 1,
-      translateY: 0,
-      duration: 1,
-      delay: isFirstLoad.value ? el.dataset.index * 0.2 : 0,
-      onComplete: () => {
-        if (isFirstLoad.value) {
-          isFirstLoad.value = false;
-        }
-        done();
-      }
-    }
-  )
-}
 </script>

@@ -7,7 +7,7 @@
       <v-btn 
         class="text-none font-weight-regular mr-2" 
         prepend-icon="mdi-account-multiple-plus"
-        text="Add participant" 
+        text="Add" 
         variant="tonal" 
         v-bind="activatorProps"
         :disabled="storeParticipants.isCounting" 
