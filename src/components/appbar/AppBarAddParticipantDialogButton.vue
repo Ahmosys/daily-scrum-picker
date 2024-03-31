@@ -42,6 +42,7 @@
               variant="underlined" 
               counter 
               required
+              @input="handleTrigramChange($event.target.value)"
             />
           </v-col>
         </v-row>
@@ -92,5 +93,10 @@ const handleAddParticipant = () => {
   storeParticipants.addParticipant(firstName.value, trigram.value);
   setIsOpened();
   resetTextFields();
+};
+
+const handleTrigramChange = (value) => {
+  // Force trigram to be lowercase
+  trigram.value = value.toLowerCase();
 };
 </script>
