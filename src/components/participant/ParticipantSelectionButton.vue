@@ -15,7 +15,7 @@ import { useParticipantStore } from "@/store/participant";
 const storeParticipants = useParticipantStore();
 
 const buttonText = computed(() => {
-  return storeParticipants.getRemainingParticipantsLength === 0
+  return storeParticipants.areAllParticipantsSelected
     ? "Reset"
     : "Pick a random participant";
 });
