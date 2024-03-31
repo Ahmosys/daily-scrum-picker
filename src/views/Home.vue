@@ -42,9 +42,7 @@
 </template>
 
 <script setup>
-import { useParticipantStore } from "@/store/participant";
-
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 
 import ParticipantList from "@/components/participant/ParticipantList.vue";
 import ParticipantSelectionButton from "@/components/participant/ParticipantSelectionButton.vue";
@@ -52,12 +50,37 @@ import ParticipantRemainingSection from "@/components/participant/ParticipantRem
 import ParticipantLastSelectedSection from "@/components/participant/ParticipantLastSelectedSection.vue";
 import ParticipantRemainingTimeSection from "@/components/participant/ParticipantRemainingTimeSection.vue";
 
+import { useParticipantStore } from "@/store/participant";
+import confetti from "canvas-confetti";
+
 const storeParticipants = useParticipantStore();
 
-const selectRandomParticipant = () =>
+const selectRandomParticipant = () => {
   storeParticipants.selectRandomParticipant();
+};
+
+const triggerConfetti = () => {
+  confetti({
+    particleCount: 300,
+    spread: 360,
+    origin: {
+      y : 0.5
+    },
+  });
+};
 
 onMounted(() => {
   storeParticipants.loadParticipantsFromLocalStorage();
 });
+
+// Watch for changes in the areAllParticipantsSelected property
+// and trigger the confetti animation when all participants are selected
+watch(
+  () => storeParticipants.areAllParticipantsSelected,
+  (newValue, oldValue) => {
+    if (newValue && !oldValue) {
+      triggerConfetti();
+    }
+  }
+);
 </script>

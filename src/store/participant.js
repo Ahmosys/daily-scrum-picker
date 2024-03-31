@@ -36,6 +36,9 @@ export const useParticipantStore = defineStore({
       return (participant) =>
         participant.id === state.lastParticipantSelectedId;
     },
+    areAllParticipantsSelected(state) {
+      return state.remainingParticipants.length === 0;
+    }
   },
   actions: {
     selectRandomParticipant() {

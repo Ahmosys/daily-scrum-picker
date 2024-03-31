@@ -4,7 +4,7 @@
     appear
     @enter="onEnter" 
   >
-    <slot></slot>
+    <slot />
   </transition-group>
 </template>
   
