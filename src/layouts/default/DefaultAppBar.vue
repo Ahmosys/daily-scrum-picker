@@ -1,7 +1,8 @@
 <template>
   <v-app-bar 
     flat 
-    scroll-behavior="hide"
+    scroll-behavior="hide"  
+    class="border-b"
   >
     <!-- Title -->
     <v-app-bar-title>
