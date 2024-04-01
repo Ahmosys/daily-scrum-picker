@@ -29,7 +29,10 @@
         class="text-center"
       >
         <v-col cols="12">
-          <p class="text-h3 font-weight-bold">
+          <p 
+            ref="greetingText" 
+            class="text-h3 font-weight-bold greeting"
+          >
             Hey there! 👋
           </p>
           <p class="text-h6 font-weight-regular">
@@ -42,7 +45,10 @@
 </template>
 
 <script setup>
-import { onMounted, watch } from "vue";
+import { onMounted, watch, ref } from "vue";
+import gsap from "gsap";
+import SplitType from 'split-type'
+import confetti from "canvas-confetti";
 
 import ParticipantList from "@/components/participant/ParticipantList.vue";
 import ParticipantSelectionButton from "@/components/participant/ParticipantSelectionButton.vue";
@@ -51,9 +57,9 @@ import ParticipantLastSelectedSection from "@/components/participant/Participant
 import ParticipantRemainingTimeSection from "@/components/participant/ParticipantRemainingTimeSection.vue";
 
 import { useParticipantStore } from "@/store/participant";
-import confetti from "canvas-confetti";
 
 const storeParticipants = useParticipantStore();
+const greetingText = ref(null);
 
 const selectRandomParticipant = () => {
   storeParticipants.selectRandomParticipant();
@@ -71,6 +77,13 @@ const triggerConfetti = () => {
 
 onMounted(() => {
   storeParticipants.loadParticipantsFromLocalStorage();
+  const splitGreetingText = new SplitType(greetingText.value, { types: "chars" });
+  gsap.from(splitGreetingText.chars, {
+    duration: 1,
+    y: 100,
+    opacity: 0,
+    stagger: 0.05,
+  });
 });
 
 // Watch for changes in the areAllParticipantsSelected property
@@ -84,3 +97,9 @@ watch(
   }
 );
 </script>
+
+<style scoped>
+.greeting {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+</style>

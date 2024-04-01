@@ -11,7 +11,7 @@
     </template>
     <v-card 
       title="Information" 
-      icon="mdi-information-outline"
+      prepend-icon="mdi-information-outline"
     >
       <v-card-text>
         This application was created by HRO to help teams during daily scrum
