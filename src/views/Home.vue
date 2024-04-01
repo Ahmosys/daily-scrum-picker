@@ -25,7 +25,7 @@
         </v-row>
       </div>
       <div 
-        v-else 
+        v-else
         class="text-center"
       >
         <v-col cols="12">

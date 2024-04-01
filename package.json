@@ -11,14 +11,17 @@
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^2.1.2",
     "@mdi/font": "7.0.96",
+    "@vee-validate/zod": "^4.12.6",
     "canvas-confetti": "^1.9.2",
     "core-js": "^3.29.0",
     "gsap": "^3.12.5",
     "pinia": "^2.0.0",
     "roboto-fontface": "*",
+    "vee-validate": "^4.12.6",
     "vue": "^3.3.9",
     "vue-router": "^4.0.0",
-    "vuetify": "^3.0.0"
+    "vuetify": "^3.0.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
