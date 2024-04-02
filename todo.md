@@ -3,6 +3,7 @@
 ### General 📝
 - [ ] Feat - Capture and display the speaking time of each participant.
 - [ ] Feat - Retrieve picture from People API by e-mail (Google).
+- [ ] Feat - Add tooltips to appbar icons.
 
 ### Home Page 🏠
 - [ ] Feat - Edit / delete a participant.
