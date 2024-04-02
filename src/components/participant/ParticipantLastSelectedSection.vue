@@ -6,7 +6,7 @@
     <p>
       <span v-if="storeParticipants.getLastParticipantSelectedId">
         It's your turn
-        <span class="text-error font-weight-bold">{{ lastSelectedParticipantName }}</span>
+        <span class="text-primary font-weight-bold">{{ lastSelectedParticipantName }}</span>
       </span>
       <span v-else>Not started yet</span>
     </p>

@@ -55,6 +55,6 @@ const participantColor = computed(() => {
   const selected = isParticipantSelected.value;
   const lastParticipant = isLastParticipant.value;
 
-  return selected ? (lastParticipant ? "error" : "primary") : "";
+  return selected ? (lastParticipant ? "primary" : "grey-darken-3") : "";
 });
 </script>

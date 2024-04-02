@@ -48,8 +48,6 @@ export const useParticipantStore = defineStore({
         setTimeout(() => {
           if (this.remainingParticipants.length > 0) {
             this.removeRandomParticipant();
-          } else {
-            this.resetSession();
           }
           this.isLoading = false;
         }, 1000);

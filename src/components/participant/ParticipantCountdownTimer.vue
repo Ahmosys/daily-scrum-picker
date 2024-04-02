@@ -5,9 +5,9 @@
     v-slot="{ minutes, seconds }"
     :time="countdownTime" 
   >
-    <span class="text-error font-weight-bold">{{ minutes }}</span>
+    <span class="text-primary font-weight-bold">{{ minutes }}</span>
     minutes and
-    <span class="text-error font-weight-bold">{{ seconds }}</span>
+    <span class="text-primary font-weight-bold">{{ seconds }}</span>
     seconds
   </vue-countdown>
   <span v-else>Not started yet</span>

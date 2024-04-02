@@ -4,7 +4,7 @@
     prepend-icon="mdi-account-multiple-minus"
     text="Edit" 
     variant="tonal"
-    :disabled="storeParticipants.isCounting || storeParticipants.getParticipantsLength === 0" 
+    :disabled="storeParticipants.isCounting || storeParticipants.getParticipantsLength === 0"
   />
 </template>
 

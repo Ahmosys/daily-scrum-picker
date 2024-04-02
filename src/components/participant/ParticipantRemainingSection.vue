@@ -5,7 +5,7 @@
     </p>
     <span v-if="storeParticipants.getRemainingParticipantsLength == 0">The daily is finished</span>
     <span v-else>
-      <span class="text-error font-weight-bold">{{ storeParticipants.getRemainingParticipantsLength }}</span>
+      <span class="text-primary font-weight-bold">{{ storeParticipants.getRemainingParticipantsLength }}</span>
       participants have to speak
     </span>
   </v-col>

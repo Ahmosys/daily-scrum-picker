@@ -2,23 +2,17 @@
   <v-btn
     :loading="storeParticipants.getIsLoading"
     color="primary"
+    :disabled="storeParticipants.areAllParticipantsSelected"
     @click="handleSelection"
   >
-    {{ buttonText }}
+    Pick
   </v-btn>
 </template>
 
 <script setup>
-import { computed } from "vue";
 import { useParticipantStore } from "@/store/participant";
 
 const storeParticipants = useParticipantStore();
-
-const buttonText = computed(() => {
-  return storeParticipants.areAllParticipantsSelected
-    ? "Reset"
-    : "Pick a random participant";
-});
 
 const emits = defineEmits(["select"]);
 

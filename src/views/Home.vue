@@ -18,9 +18,10 @@
         <v-row class="text-center">
           <participant-list />
         </v-row>
-        <v-row class="text-center">
+        <v-row class="text-center mt-5">
           <v-col cols="12">
             <participant-selection-button @select="selectRandomParticipant" />
+            <participant-reset-button class="ml-2" />
           </v-col>
         </v-row>
       </div>
@@ -52,6 +53,7 @@ import confetti from "canvas-confetti";
 
 import ParticipantList from "@/components/participant/ParticipantList.vue";
 import ParticipantSelectionButton from "@/components/participant/ParticipantSelectionButton.vue";
+import ParticipantResetButton from "@/components/participant/ParticipantResetButton.vue";
 import ParticipantRemainingSection from "@/components/participant/ParticipantRemainingSection.vue";
 import ParticipantLastSelectedSection from "@/components/participant/ParticipantLastSelectedSection.vue";
 import ParticipantRemainingTimeSection from "@/components/participant/ParticipantRemainingTimeSection.vue";
