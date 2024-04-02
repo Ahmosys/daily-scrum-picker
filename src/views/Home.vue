@@ -2,27 +2,8 @@
   <v-container class="fill-height">
     <v-responsive class="align-center fill-height">
       <div v-if="storeParticipants.getParticipantsLength > 0">
-        <v-row class="text-center">
-          <participant-remaining-time-section />
-          <v-divider 
-            inset 
-            vertical 
-          />
-          <participant-last-selected-section />
-          <v-divider 
-            inset 
-            vertical 
-          />
-          <participant-remaining-section />
-        </v-row>
-        <v-row class="text-center">
+        <v-row>
           <participant-list />
-        </v-row>
-        <v-row class="text-center mt-5">
-          <v-col cols="12">
-            <participant-selection-button @select="selectRandomParticipant" />
-            <participant-reset-button class="ml-2" />
-          </v-col>
         </v-row>
       </div>
       <div 
@@ -52,20 +33,11 @@ import SplitType from 'split-type'
 import confetti from "canvas-confetti";
 
 import ParticipantList from "@/components/participant/ParticipantList.vue";
-import ParticipantSelectionButton from "@/components/participant/ParticipantSelectionButton.vue";
-import ParticipantResetButton from "@/components/participant/ParticipantResetButton.vue";
-import ParticipantRemainingSection from "@/components/participant/ParticipantRemainingSection.vue";
-import ParticipantLastSelectedSection from "@/components/participant/ParticipantLastSelectedSection.vue";
-import ParticipantRemainingTimeSection from "@/components/participant/ParticipantRemainingTimeSection.vue";
 
 import { useParticipantStore } from "@/store/participant";
 
 const storeParticipants = useParticipantStore();
 const greetingText = ref(null);
-
-const selectRandomParticipant = () => {
-  storeParticipants.selectRandomParticipant();
-};
 
 const triggerConfetti = () => {
   confetti({

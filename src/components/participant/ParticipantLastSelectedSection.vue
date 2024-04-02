@@ -1,6 +1,6 @@
 <template>
   <v-col>
-    <p class="text-h6 font-weight-bold">
+    <p class="text-h6">
       <v-icon icon="mdi-flag-checkered" />Last selected participant
     </p>
     <p>

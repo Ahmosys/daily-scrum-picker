@@ -1,11 +1,13 @@
 <template>
-  <v-app>
+  <v-layout>
     <default-app-bar />
-    <default-view />
-  </v-app>
+    <default-view-main />
+    <default-drawer-left />
+  </v-layout>
 </template>
 
 <script setup>
   import DefaultAppBar from '@/layouts/default/DefaultAppBar.vue'
-  import DefaultView from '@/layouts/default/DefaultView.vue'
+  import DefaultViewMain from '@/layouts/default/DefaultViewMain.vue'
+  import DefaultDrawerLeft from '@/layouts/default/DefaultDrawerLeft.vue'
 </script>

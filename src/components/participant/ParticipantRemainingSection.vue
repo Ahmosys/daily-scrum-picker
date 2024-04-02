@@ -1,9 +1,9 @@
 <template>
   <v-col>
-    <p class="text-h6 font-weight-bold">
+    <p class="text-h6">
       <v-icon icon="mdi-account" />Remaining participants
     </p>
-    <span v-if="storeParticipants.getRemainingParticipantsLength == 0">The daily is finished</span>
+    <span v-if="storeParticipants.areAllParticipantsSelected">The daily is finished</span>
     <span v-else>
       <span class="text-primary font-weight-bold">{{ storeParticipants.getRemainingParticipantsLength }}</span>
       participants have to speak

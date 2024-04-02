@@ -9,6 +9,7 @@ export const useParticipantStore = defineStore({
     isLoading: false,
     isCounting: false,
     isFinished: false,
+    loadingTime: 1500,
   }),
   getters: {
     getRemainingParticipantsLength: (state) => state.remainingParticipants.length,
@@ -50,7 +51,7 @@ export const useParticipantStore = defineStore({
             this.removeRandomParticipant();
           }
           this.isLoading = false;
-        }, 1000);
+        }, this.loadingTime);
       }
     },
     removeRandomParticipant() {

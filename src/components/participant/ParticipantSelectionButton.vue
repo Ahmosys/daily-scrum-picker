@@ -1,7 +1,8 @@
 <template>
   <v-btn
-    :loading="storeParticipants.getIsLoading"
     color="primary"
+    variant="flat"
+    :loading="storeParticipants.getIsLoading"
     :disabled="storeParticipants.areAllParticipantsSelected"
     @click="handleSelection"
   >

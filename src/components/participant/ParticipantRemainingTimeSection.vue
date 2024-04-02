@@ -1,6 +1,6 @@
 <template>
   <v-col>
-    <p class="text-h6 font-weight-bold">
+    <p class="text-h6">
       <v-icon icon="mdi-timer-sand" />Remaining time
     </p>
     <p>

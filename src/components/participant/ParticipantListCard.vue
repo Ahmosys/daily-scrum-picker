@@ -1,5 +1,6 @@
 <template>
   <v-card
+    class="text-center"
     prepend-icon="mdi-account"
     :border="true"
     :color="participantColor"

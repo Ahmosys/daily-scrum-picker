@@ -1,7 +1,8 @@
 <template>
   <v-btn
     color="error"
-    :disabled="!storeParticipants.isCounting"
+    variant="flat"
+    :disabled="!storeParticipants.isCounting || storeParticipants.isLoading"
     @click="storeParticipants.resetSession"
   > 
     Reset
@@ -12,4 +13,5 @@
 import { useParticipantStore } from "@/store/participant";
 
 const storeParticipants = useParticipantStore();
+
 </script>
