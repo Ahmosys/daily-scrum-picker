@@ -64,11 +64,11 @@ export const useParticipantStore = defineStore({
       );
       this.remainingParticipants.splice(indexToRemove, 1);
     },
-    addParticipant(name, trigram) {
+    addParticipant(name, nickname) {
       const newParticipant = { 
         id: this.participants.length + 1,
         name: name,
-        trigram: trigram
+        nickname: nickname
       };
       this.participants.push(newParticipant);
       this.remainingParticipants.push(newParticipant);

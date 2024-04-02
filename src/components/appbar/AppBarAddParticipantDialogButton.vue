@@ -33,14 +33,14 @@
             </v-col>
             <v-col cols="12">
               <v-text-field 
-                v-model="fields.trigram.value.value"
-                label="Trigram*" 
+                v-model="fields.nickname.value.value"
+                label="Nickname*" 
                 placeholder="jdo" 
-                maxlength="3" 
+                maxlength="10" 
                 variant="underlined"
-                :error-messages="fields.trigram.errorMessage.value" 
+                :error-messages="fields.nickname.errorMessage.value" 
                 counter
-                @input="handleTrigramChange($event.target.value)"
+                @input="handleNicknameChange($event.target.value)"
               />
             </v-col>
           </v-row>
@@ -97,7 +97,7 @@ const showSnackbar = ref(false);
 const formSchema = toTypedSchema(
   z.object({
     firstName: z.string().min(1, { message: 'First name is required.' }).max(10, { message: 'First name must be at most 10 characters long.' }),
-    trigram: z.string().length(3, { message: 'Trigram is required and must be exactly 3 characters long.' }) 
+    nickname: z.string().min(1, { message: 'Nickname is required.' }).max(10, { message: 'Nickname must be at most 10 characters long.' })
   })
 );
 
@@ -107,19 +107,19 @@ const { handleSubmit, handleReset } = useForm({
 
 const fields = {
   firstName: useField("firstName", formSchema),
-  trigram: useField("trigram", formSchema),
+  nickname: useField("nickname", formSchema),
 };
 
 const onSubmit = handleSubmit((values) => {
-  storeParticipants.addParticipant(values.firstName, values.trigram.toLowerCase());
+  storeParticipants.addParticipant(values.firstName, values.nickname.toLowerCase());
   setShowSnackbar();
   setIsOpened();
   handleReset();
 })
 
-const handleTrigramChange = (value) => {
-  // Force trigram to be lowercase
-  fields.trigram.value.value = value.toLowerCase();
+const handleNicknameChange = (value) => {
+  // Force nickname to be lowercase
+  fields.nickname.value.value = value.toLowerCase();
 };
 
 const setIsOpened = () => {

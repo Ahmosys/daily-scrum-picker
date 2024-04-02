@@ -17,7 +17,7 @@
           </p>
         </v-col>
         <v-col cols="12">
-          <p>{{ participant.trigram }}</p>
+          <p>{{ participant.nickname }}</p>
         </v-col>
       </v-row>
     </v-card-text>
