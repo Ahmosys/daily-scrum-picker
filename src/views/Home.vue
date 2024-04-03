@@ -1,6 +1,6 @@
 <template>
-  <v-container class="fill-height">
-    <v-responsive class="align-center fill-height">
+  <v-container>
+    <v-responsive>
       <div v-if="storeParticipants.getParticipantsLength > 0">
         <v-row>
           <participant-list />

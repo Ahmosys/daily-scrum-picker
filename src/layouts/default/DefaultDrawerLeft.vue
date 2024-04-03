@@ -1,6 +1,7 @@
 <template>
   <v-navigation-drawer 
     :width="350"
+    :temporary="storeParticipants.getParticipantsLength < 1"
   >
     <div class="">
       <participant-remaining-time-section />
