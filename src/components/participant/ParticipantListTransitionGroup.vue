@@ -3,6 +3,7 @@
     :css="false" 
     appear
     @enter="onEnter" 
+    @leave="onLeave"
   >
     <slot />
   </transition-group>
@@ -32,6 +33,18 @@ const onEnter = (el, done) => {
         }
         done();
       }
+    }
+  )
+}
+
+const onLeave = (el, done) => {
+  gsap.to(
+    el,
+    {
+      opacity: 0,
+      translateY: 50,
+      duration: 0.5,
+      onComplete: done
     }
   )
 }
