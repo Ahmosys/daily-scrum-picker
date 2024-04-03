@@ -20,3 +20,6 @@
 - [ ] Feat - Save the list of participants in the IndexedDB instead of the local storage.
 - [ ] Feat - Save the list of participants in the database / cloud storage.
 - [ ] Feat - Account creation / connection to save the list of participants in the cloud (probably need a backend).
+  
+### Refactoring 🛠️
+- [ ] Refactor - Homepage split into components and analyze the performance.

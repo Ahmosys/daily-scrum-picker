@@ -1,15 +1,20 @@
 <template>
   <v-navigation-drawer 
+    v-if="storeParticipants.getParticipants.length > 0"
     :width="350"
-    :temporary="storeParticipants.getParticipantsLength < 1"
   >
-    <div class="">
-      <participant-remaining-time-section />
-      <v-divider length="65%" />
-      <participant-last-selected-section />
-      <v-divider length="65%" />
-      <participant-remaining-section />
-    </div>
+    <v-container 
+      style="height: 100%;"
+      class="d-flex align-center justify-center"
+    >
+      <v-row>
+        <participant-remaining-time-section />
+        <v-divider length="65%" />
+        <participant-last-selected-section />
+        <v-divider length="65%" />
+        <participant-remaining-section />
+      </v-row>
+    </v-container>
     <template #append>
       <div class="pa-3">
         <participant-selection-button @select="selectRandomParticipant" />

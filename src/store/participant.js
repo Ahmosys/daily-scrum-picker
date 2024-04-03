@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { v4 as uuidv4 } from "uuid"; 
 
 export const useParticipantStore = defineStore({
   id: "participant",
@@ -67,7 +68,7 @@ export const useParticipantStore = defineStore({
     },
     addParticipant(name, nickname) {
       const newParticipant = { 
-        id: this.participants.length + 1,
+        id: uuidv4(),
         name: name,
         nickname: nickname
       };
@@ -75,6 +76,14 @@ export const useParticipantStore = defineStore({
       this.remainingParticipants.push(newParticipant);
       this.saveParticipantsToLocalStorage();
     },
+    removeParticipantById(id) {
+      const indexToRemove = this.participants.findIndex(
+        (participant) => participant.id === id
+      );
+      this.participants.splice(indexToRemove, 1);
+      this.remainingParticipants = [...this.participants];
+      this.saveParticipantsToLocalStorage();
+    },    
     saveParticipantsToLocalStorage() {
       localStorage.setItem('participants', JSON.stringify(this.participants));
     },

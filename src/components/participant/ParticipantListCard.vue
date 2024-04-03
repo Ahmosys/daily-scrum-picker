@@ -2,6 +2,7 @@
   <v-card
     class="text-center"
     prepend-icon="mdi-account"
+    elevation="0"
     :border="true"
     :color="participantColor"
     :disabled="isParticipantDisabled"
